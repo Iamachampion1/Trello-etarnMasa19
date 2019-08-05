@@ -24,13 +24,5 @@ public void preconditions(){
     Assert.assertTrue(isUserLoggedIn());
   }
 
-  private boolean isUserLoggedIn() {
-    return isElementPresent(By.cssSelector(".js-open-header-member-menu"));
-  }
-
-  private boolean isElementPresent(By locator) {
-    return driver.findElements(locator).size()>0;
-  }
-
 
 }
