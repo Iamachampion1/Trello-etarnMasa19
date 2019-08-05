@@ -1,6 +1,5 @@
 package com.telran.tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -8,20 +7,20 @@ import org.testng.annotations.Test;
 public class LogInTest extends TestBase {
   @BeforeMethod
 public void preconditions(){
-  logout();
+  app.logout();
 }
   @Test
   public void loginTest() throws InterruptedException {
-    String currentUrl = driver.getCurrentUrl();
+    String currentUrl = app.driver.getCurrentUrl();
 
     Assert.assertEquals(currentUrl, "https://trello.com/logged-out");
 
-    clickOnLoginButton();
-    fillUserForm("elena.telran@yahoo.com", "12345.com");
-    confirmLoginButton();
-    pause(4000);
+    app.clickOnLoginButton();
+    app.fillUserForm("elena.telran@yahoo.com", "12345.com");
+    app.confirmLoginButton();
+    app.pause(4000);
 
-    Assert.assertTrue(isUserLoggedIn());
+    Assert.assertTrue(app.isUserLoggedIn());
   }
 
 

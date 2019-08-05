@@ -7,15 +7,15 @@ public class TeamDeletionTest extends TestBase {
 
   @Test
   public void testTeamDeletion() throws InterruptedException {
-    pause(15000);
-    int before = getTeamsCount();
+    app.pause(15000);
+    int before = app.getTeamsCount();
     System.out.print(before + " : ");
-    clickOnFirstTeam();
-    clickOnTeamSettings();
-    clickDeleteTeamLink();
-    confirmTeamDeletionButton();
+    app.clickOnFirstTeam();
+    app.clickOnTeamSettings();
+    app.clickDeleteTeamLink();
+    app.confirmTeamDeletionButton();
 
-    int after = getTeamsCount();
+    int after = app.getTeamsCount();
     System.out.println(after);
   }
 
