@@ -1,8 +1,13 @@
 package com.telran.tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 public class BoardHelper  extends  HelperBase{
+  public BoardHelper(WebDriver driver) {
+    super(driver);
+  }
+
   public void confirmBoardCreation() throws InterruptedException {
         click(By.cssSelector("[data-test-id='header-create-board-submit-button']"));
         pause(15000);

@@ -8,14 +8,14 @@ public class CreateBoardTest  extends  TestBase{
   @Test
   public void boardCreationTestFromHeader () throws InterruptedException {
 
-int beforeCreation = app.getBoardsCount();
-    app.clickOnPlusButtonOnHeader();
-    app.selectCreateBoardFromDropDown();
-    app.fillBoardCreationForm("Masa-" + System.currentTimeMillis());
-    app.confirmBoardCreation();
-    app.clickOnHomeButtonOnHeader();
+int beforeCreation = app.getBoard().getBoardsCount();
+    app.getHeader().clickOnPlusButtonOnHeader();
+    app.getBoard().selectCreateBoardFromDropDown();
+    app.getBoard().fillBoardCreationForm("Masa-" + System.currentTimeMillis());
+    app.getBoard().confirmBoardCreation();
+    app.getHeader().clickOnHomeButtonOnHeader();
 
-    int afterCreation= app.getBoardsCount();
+    int afterCreation= app.getBoard().getBoardsCount();
 
     System.out.println(beforeCreation + " : " + afterCreation);
 

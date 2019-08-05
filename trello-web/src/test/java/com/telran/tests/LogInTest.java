@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class LogInTest extends TestBase {
   @BeforeMethod
 public void preconditions(){
-  app.logout();
+  app.getSession().logout();
 }
   @Test
   public void loginTest() throws InterruptedException {
@@ -15,12 +15,12 @@ public void preconditions(){
 
     Assert.assertEquals(currentUrl, "https://trello.com/logged-out");
 
-    app.clickOnLoginButton();
-    app.fillUserForm("elena.telran@yahoo.com", "12345.com");
-    app.confirmLoginButton();
-    app.pause(4000);
+    app.getSession().clickOnLoginButton();
+    app.getSession().fillUserForm("elena.telran@yahoo.com", "12345.com");
+    app.getSession().confirmLoginButton();
+    app.getSession().pause(4000);
 
-    Assert.assertTrue(app.isUserLoggedIn());
+    Assert.assertTrue(app.getSession().isUserLoggedIn());
   }
 
 

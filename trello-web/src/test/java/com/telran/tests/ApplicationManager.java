@@ -2,12 +2,15 @@ package com.telran.tests;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
+  SessionHelper session;
+  BoardHelper board;
+  TeamHelper team;
+  HeaderPage header;
+
   WebDriver driver;
 
   public void init() throws InterruptedException {
@@ -15,7 +18,12 @@ public class ApplicationManager {
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     driver.navigate().to("https://trello.com");
-    login("elena.telran@yahoo.com", "12345.com");
+    session = new SessionHelper(driver);
+    board = new BoardHelper(driver);
+    team = new TeamHelper(driver);
+    header = new HeaderPage(driver);
+
+    session.login("elena.telran@yahoo.com", "12345.com");
   }
 
 
@@ -23,4 +31,19 @@ public class ApplicationManager {
     driver.quit();
   }
 
+  public SessionHelper getSession() {
+    return session;
+  }
+
+  public BoardHelper getBoard() {
+    return board;
+  }
+
+  public TeamHelper getTeam() {
+    return team;
+  }
+
+  public HeaderPage getHeader() {
+    return header;
+  }
 }
