@@ -46,4 +46,8 @@ public class ApplicationManager {
   public HeaderPage getHeader() {
     return header;
   }
+
+  public String getUrl() {
+    return driver.getCurrentUrl();
+  }
 }

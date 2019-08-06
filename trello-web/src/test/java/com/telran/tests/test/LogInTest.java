@@ -11,7 +11,7 @@ public void preconditions(){
 }
   @Test
   public void loginTest() throws InterruptedException {
-    String currentUrl = app.driver.getCurrentUrl();
+    String currentUrl = app.getUrl();
 
     Assert.assertEquals(currentUrl, "https://trello.com/logged-out");
 

@@ -47,7 +47,7 @@ public class SessionHelper  extends  HelperBase{
     click(By.cssSelector(".js-open-header-member-menu"));
   }
 
-  protected boolean isUserLoggedIn() {
+  public boolean isUserLoggedIn() {
     return isElementsPresent(By.cssSelector(".js-open-header-member-menu"));
   }
 }
